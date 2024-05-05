@@ -48,7 +48,7 @@ router.put('/:id', (req, res) => {
     }
   )
   .then((updatedCategory) => {
-    res.json(updatedCategory);
+    res.json(`Category Updated Now: ${req.body.category_name}`);
   })
   .catch((err) => res.json(err));
   });
@@ -56,7 +56,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try {
-    const catagoryData = await Category.destroy({
+    const categoryData = await Category.destroy({
       where: {
         id: req.params.id
       }
